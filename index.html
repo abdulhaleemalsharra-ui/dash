@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Study Dashboard — Minimal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Study Dashboard</h1>
+    <div class="controls">
+      <label class="switch" title="Toggle dark mode">
+        <input id="themeToggle" type="checkbox">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="card" id="tasksCard">
+      <h2>Tasks</h2>
+      <div class="add-row">
+        <input id="taskInput" placeholder="New task (e.g. Study algebra)" />
+        <button id="addTaskBtn">Add</button>
+      </div>
+      <div id="taskList" class="list"></div>
+    </section>
+
+    <section class="card" id="pomodoroCard">
+      <h2>Pomodoro</h2>
+      <div class="pomodoro">
+        <div id="timeDisplay">25:00</div>
+        <div class="pom-controls">
+          <button id="startBtn">Start</button>
+          <button id="pauseBtn">Pause</button>
+          <button id="resetBtn">Reset</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="notesCard">
+      <h2>Notes</h2>
+      <textarea id="notesBox" placeholder="Quick notes... (saved automatically)"></textarea>
+    </section>
+
+    <section class="card" id="calendarCard">
+      <h2>Calendar</h2>
+      <div class="calendar-head">
+        <button id="prevMonth">‹</button>
+        <div id="monthLabel"></div>
+        <button id="nextMonth">›</button>
+      </div>
+      <div id="calendarGrid" class="calendar-grid"></div>
+    </section>
+
+    <!-- Day view panel for selected date -->
+    <section id="dayView" class="card" style="display:none;">
+      <h2 id="dayTitle">Tasks for</h2>
+      <div class="input-row">
+        <input id="dayTaskInput" type="text" placeholder="Add task for this day...">
+        <button id="addDayTaskBtn">Add</button>
+      </div>
+      <div id="dayTaskList" class="list"></div>
+      <div style="margin-top:10px;">
+        <button id="closeDayView" style="background:#b33;">Close</button>
+      </div>
+    </section>
+
+    <section class="card wide" id="weekCard">
+      <h2>Weekly Schedule</h2>
+      <div id="weekGrid" class="week-grid"></div>
+    </section>
+
+    <section class="card wide" id="chartsCard">
+      <h2>Progress Charts</h2>
+      <canvas id="studyChart" width="800" height="300"></canvas>
+    </section>
+  </main>
+
+  <footer class="footer">Minimal • Responsive • Dark mode • Saved in localStorage</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
